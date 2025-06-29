@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+        <meta name='description' content='A simple HTML5 template'>
+        <meta name='keywords' content='HTML, template, simple'>
+        <meta name='author' content='Your Name'>
+        <link rel='stylesheet' href='styles.css'>
+        <link rel='icon' href='favicon.ico' type='image/x-icon'>
+        <title>Document Title</title>
+        <!-- tailwind css -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-500  ">
+        <div class="flex flex-col items-center justify-center min-h-screen bg-white ">
+              
+        <div>
+            <h1 id="counter" class="text-center mt-5 font-extrabold text-center mt-10 border-2 border-black p-4"></h1>
+            <!-- <p class="text-center mt-4">Click the button below to increase/decrease/reset  the count.</p> -->
+
+                    </div>
+
+        <div class="flex justify-center mt-10 gap-6">
+            <button id="increase" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out" onclick="add_count()">Increase</button>
+            <button id="decrease" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out" onclick="dec_count()">Decrease</button>
+            <button id="reset" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out" onclick="reset_count()">Reset</button>
+</div>
+</div>
+        
+<script>
+    let count = 0;
+    const counterElem = document.getElementById('counter');
+    const decbtn = document.getElementById('decrease');
+    decbtn.disabled=true;
+
+    function updateCounter() {
+        counterElem.innerText = `${count}`;
+        counterElem.classList.remove('text-red-500', 'font-bold');
+    }
+
+    updateCounter();
+
+    function add_count() {
+        count++;
+        updateCounter();
+    }
+
+    function dec_count() {
+        if (count <= 0) {
+            counterElem.innerText = 'Cannot decrease below zero';
+            counterElem.classList.add('text-red-500', 'font-bold');
+            return;
+        }
+        count--;
+        updateCounter();
+    }
+
+    function reset_count() {
+        count = 0;
+        updateCounter();
+    }
+</script>
+    </body>
+</html>
